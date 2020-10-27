@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { I18nManager, Platform, YellowBox } from 'react-native';
+import {ExentriqTheme, ExentriqDarkTheme} from './ExentriqStyle';
 import AsyncStorage from '@react-native-community/async-storage';
 import { InitialState, NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -97,7 +98,7 @@ export default function PaperExample() {
   >();
 
   const [theme, setTheme] = React.useState<ReactNativePaper.Theme>(
-    CustomDefaultTheme
+    ExentriqTheme
   );
   const [rtl, setRtl] = React.useState<boolean>(I18nManager.isRTL);
 
@@ -129,7 +130,7 @@ export default function PaperExample() {
         if (preferences) {
           // eslint-disable-next-line react/no-did-mount-set-state
           setTheme(
-            preferences.theme === 'dark' ? CustomDarkTheme : CustomDefaultTheme
+            preferences.theme === 'dark' ? ExentriqDarkTheme : ExentriqTheme
           );
 
           if (typeof preferences.rtl === 'boolean') {
@@ -170,7 +171,7 @@ export default function PaperExample() {
     () => ({
       toggleTheme: () =>
         setTheme((theme) =>
-          theme === CustomDefaultTheme ? CustomDarkTheme : CustomDefaultTheme
+          theme === ExentriqTheme ? ExentriqDarkTheme : ExentriqTheme
         ),
       toggleRtl: () => setRtl((rtl) => !rtl),
       rtl,

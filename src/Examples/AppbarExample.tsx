@@ -4,11 +4,13 @@ import type { StackNavigationProp } from '@react-navigation/stack';
 import {
   Colors,
   Appbar,
+  Avatar,
   FAB,
   Switch,
   Paragraph,
   useTheme,
 } from 'react-native-paper';
+import { ExentriqTheme } from '../ExentriqStyle';
 
 type Props = {
   navigation: StackNavigationProp<{}>;
@@ -23,6 +25,7 @@ const AppbarExample = ({ navigation }: Props) => {
   const [showSubtitle, setShowSubtitle] = React.useState(true);
   const [showSearchIcon, setShowSearchIcon] = React.useState(true);
   const [showMoreIcon, setShowMoreIcon] = React.useState(true);
+  const [showAvatar, setShowMoreAvatar] = React.useState(true);
   const [showCustomColor, setShowCustomColor] = React.useState(false);
   const [showExactTheme, setShowExactTheme] = React.useState(false);
 
@@ -30,19 +33,22 @@ const AppbarExample = ({ navigation }: Props) => {
     header: () => (
       <Appbar.Header
         style={showCustomColor ? { backgroundColor: '#ffff00' } : null}
+        color={ExentriqTheme.colors.textOnPrimary}
         theme={{
           mode: showExactTheme ? 'exact' : 'adaptive',
         }}
       >
         {showLeftIcon && (
-          <Appbar.BackAction onPress={() => navigation.goBack()} />
+          <Appbar.BackAction onPress={() => navigation.goBack()} color={ExentriqTheme.colors.textOnPrimary}/>
         )}
         <Appbar.Content
           title="Title"
           subtitle={showSubtitle ? 'Subtitle' : null}
+          color={ExentriqTheme.colors.textOnPrimary}
         />
-        {showSearchIcon && <Appbar.Action icon="magnify" onPress={() => {}} />}
-        {showMoreIcon && <Appbar.Action icon={MORE_ICON} onPress={() => {}} />}
+        {showSearchIcon && <Appbar.Action color={ExentriqTheme.colors.textOnPrimary} icon="magnify" onPress={() => {}} />}
+        {showMoreIcon && <Appbar.Action color={ExentriqTheme.colors.textOnPrimary} icon={MORE_ICON} onPress={() => {}} />}
+        {showAvatar && <Avatar.Image color={ExentriqTheme.colors.textOnPrimary} size={32} source={require('../../assets/images/avatar.png')} />}
       </Appbar.Header>
     ),
   });
@@ -64,6 +70,10 @@ const AppbarExample = ({ navigation }: Props) => {
       <View style={styles.row}>
         <Paragraph>More icon</Paragraph>
         <Switch value={showMoreIcon} onValueChange={setShowMoreIcon} />
+      </View>
+      <View style={styles.row}>
+        <Paragraph>Avatar</Paragraph>
+        <Switch value={showAvatar} onValueChange={setShowMoreAvatar} />
       </View>
       <View style={styles.row}>
         <Paragraph>Custom Color</Paragraph>

@@ -40,25 +40,22 @@ const PhotoGallery = ({ route }: Route) => {
 const BottomNavigationExample = () => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState<RoutesState>([
-    { key: 'album', title: 'Album', icon: 'image-album', color: '#6200ee' },
+    { key: 'album', icon: 'image-album', color: '#1bbc9b' },
     {
       key: 'library',
-      title: 'Library',
       icon: 'inbox',
-      color: '#2962ff',
+      color: '#1bbc9b',
       badge: true,
     },
     {
       key: 'favorites',
-      title: 'Favorites',
       icon: 'heart',
-      color: '#00796b',
+      color: '#1bbc9b',
     },
     {
       key: 'purchased',
-      title: 'Purchased',
       icon: 'shopping-music',
-      color: '#c51162',
+      color: '#1bbc9b',
     },
   ]);
 
