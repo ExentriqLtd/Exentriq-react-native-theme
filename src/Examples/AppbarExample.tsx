@@ -32,7 +32,7 @@ const AppbarExample = ({ navigation }: Props) => {
   navigation.setOptions({
     header: () => (
       <Appbar.Header
-        style={showCustomColor ? { backgroundColor: '#ffff00' } : null}
+        style={showCustomColor ? { backgroundColor: '#2f4357' } : null}
         color={ExentriqTheme.colors.textOnPrimary}
         theme={{
           mode: showExactTheme ? 'exact' : 'adaptive',
@@ -48,7 +48,7 @@ const AppbarExample = ({ navigation }: Props) => {
         />
         {showSearchIcon && <Appbar.Action color={ExentriqTheme.colors.textOnPrimary} icon="magnify" onPress={() => {}} />}
         {showMoreIcon && <Appbar.Action color={ExentriqTheme.colors.textOnPrimary} icon={MORE_ICON} onPress={() => {}} />}
-        {showAvatar && <Avatar.Image color={ExentriqTheme.colors.textOnPrimary} size={32} source={require('../../assets/images/avatar.png')} />}
+        {showAvatar && <Avatar.Image color={ExentriqTheme.colors.textOnPrimary} size={32} style={ExentriqTheme.spacing} source={require('../../assets/images/avatar.png')} />}
       </Appbar.Header>
     ),
   });
@@ -83,16 +83,7 @@ const AppbarExample = ({ navigation }: Props) => {
         <Paragraph>Exact Dark Theme</Paragraph>
         <Switch value={showExactTheme} onValueChange={setShowExactTheme} />
       </View>
-      <Appbar
-        style={[styles.bottom]}
-        theme={{ mode: showExactTheme ? 'exact' : 'adaptive' }}
-      >
-        <Appbar.Action icon="archive" onPress={() => {}} />
-        <Appbar.Action icon="email" onPress={() => {}} />
-        <Appbar.Action icon="label" onPress={() => {}} />
-        <Appbar.Action icon="delete" onPress={() => {}} />
-      </Appbar>
-      <FAB icon="reply" onPress={() => {}} style={styles.fab} />
+      <FAB icon="reply" onPress={() => {}} style={styles.fab} color={ExentriqTheme.colors.textOnPrimary}/>
     </View>
   );
 };

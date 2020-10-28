@@ -23,6 +23,10 @@ export const ExentriqTheme = {
       ...DefaultTheme.animation,
       customProperty: 1,
     },
+    spacing: {
+      marginLeft: 16,
+      marginRight: 16,
+    },
   };
 
   export const ExentriqDarkTheme: ReactNativePaper.Theme = {
