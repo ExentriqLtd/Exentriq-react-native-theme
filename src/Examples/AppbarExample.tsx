@@ -10,6 +10,7 @@ import {
   Paragraph,
   useTheme,
 } from 'react-native-paper';
+import ExAppBarExeq from '../Components/ExAppBarItem'
 import { ExentriqTheme } from '../ExentriqStyle';
 
 type Props = {
@@ -28,28 +29,30 @@ const AppbarExample = ({ navigation }: Props) => {
   const [showAvatar, setShowMoreAvatar] = React.useState(true);
   const [showCustomColor, setShowCustomColor] = React.useState(false);
   const [showExactTheme, setShowExactTheme] = React.useState(false);
-
+  const onPress = () => navigation.goBack();
+  
   navigation.setOptions({
     header: () => (
-      <Appbar.Header
-        style={showCustomColor ? { backgroundColor: '#2f4357' } : null}
-        color={ExentriqTheme.colors.textOnPrimary}
-        theme={{
-          mode: showExactTheme ? 'exact' : 'adaptive',
-        }}
-      >
-        {showLeftIcon && (
-          <Appbar.BackAction onPress={() => navigation.goBack()} color={ExentriqTheme.colors.textOnPrimary}/>
-        )}
-        <Appbar.Content
-          title="Title"
-          subtitle={showSubtitle ? 'Subtitle' : null}
-          color={ExentriqTheme.colors.textOnPrimary}
-        />
-        {showSearchIcon && <Appbar.Action color={ExentriqTheme.colors.textOnPrimary} icon="magnify" onPress={() => {}} />}
-        {showMoreIcon && <Appbar.Action color={ExentriqTheme.colors.textOnPrimary} icon={MORE_ICON} onPress={() => {}} />}
-        {showAvatar && <Avatar.Image color={ExentriqTheme.colors.textOnPrimary} size={32} style={ExentriqTheme.spacing} source={require('../../assets/images/avatar.png')} />}
-      </Appbar.Header>
+      // <Appbar.Header
+      //   style={showCustomColor ? { backgroundColor: '#2f4357' } : null}
+      //   color={ExentriqTheme.colors.textOnPrimary}
+      //   theme={{
+      //     mode: showExactTheme ? 'exact' : 'adaptive',
+      //   }}
+      // >
+      //   {showLeftIcon && (
+      //     <Appbar.BackAction onPress={() => navigation.goBack()} color={ExentriqTheme.colors.textOnPrimary}/>
+      //   )}
+      //   <Appbar.Content
+      //     title="Title"
+      //     subtitle={showSubtitle ? 'Subtitle' : null}
+      //     color={ExentriqTheme.colors.textOnPrimary}
+      //   />
+      //   {showSearchIcon && <Appbar.Action color={ExentriqTheme.colors.textOnPrimary} icon="magnify" onPress={() => {}} />}
+      //   {showMoreIcon && <Appbar.Action color={ExentriqTheme.colors.textOnPrimary} icon={MORE_ICON} onPress={() => {}} />}
+      //   {showAvatar && <Avatar.Image color={ExentriqTheme.colors.textOnPrimary} size={32} style={ExentriqTheme.spacing} source={require('../../assets/images/avatar.png')} />}
+      // </Appbar.Header>
+      <ExAppBarExeq textColor={ExentriqTheme.colors.textOnPrimary} onPress={onPress}/>
     ),
   });
 
